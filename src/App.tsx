@@ -38,27 +38,27 @@ const SOCIAL_LINKS = [
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start py-16 px-6 bg-[url('/images/wallpaper.svg')] bg-cover bg-right lg:bg-center bg-fixed">
-      <div className="relative max-w-md w-full flex flex-col items-center space-y-8">
+      <div className="relative max-w-md w-full flex flex-col items-center space-y-6 sm:space-y-8">
         
         {/* Profile Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center space-y-4"
+          className="flex flex-col items-center space-y-3 sm:space-y-4"
         >
           <div className="relative group">
             <div className="absolute -inset-1 bg-linear-to-r from-indigo-500 to-purple-600 rounded-full blur-sm opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
             <img 
               src="/images/dp.jpg" 
               alt="Fitri Mahadzir" 
-              className="relative w-24 h-24 rounded-full border-4 border-[#bbdb00] shadow-xl object-cover"
+              className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-[#bbdb00] shadow-xl object-cover"
               referrerPolicy="no-referrer"
             />
           </div>
           <div className="text-center">
-            <h1 className="text-2xl font-bold tracking-tight text-[#bbdb00]">Fitri Mahadzir</h1>
-            <p className="text-[#ffffff] font-medium">Designer & Creative Developer</p>
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#bbdb00]">Fitri Mahadzir</h1>
+            <p className="text-sm sm:text-base text-[#ffffff] font-medium">Designer & Creative Developer</p>
           </div>
         </motion.div>
 
@@ -88,20 +88,20 @@ export default function App() {
             </div>
             
             {/* Button Content */}
-            <div className="flex items-center justify-between p-4">
-              <div className="flex items-center space-x-4">
-                <div className="bg-slate-900/10 p-2 rounded-xl group-hover:bg-slate-900/20 transition-colors">
-                  <Palette className="w-6 h-6" />
+            <div className="flex items-center justify-between p-3 sm:p-4">
+              <div className="flex items-center space-x-3 sm:space-x-4">
+                <div className="bg-slate-900/10 p-1.5 sm:p-2 rounded-xl group-hover:bg-slate-900/20 transition-colors">
+                  <Palette className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="font-semibold text-lg">View My Portfolio</span>
+                <span className="font-semibold text-base sm:text-lg">View My Portfolio</span>
               </div>
-              <ExternalLink className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+              <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
             </div>
           </a>
         </motion.div>
 
         {/* Social Links Section */}
-        <div className="w-full space-y-3">
+        <div className="w-full space-y-2 sm:space-y-3">
           {SOCIAL_LINKS.map((link, index) => (
             <motion.div
               key={link.name}
@@ -113,13 +113,13 @@ export default function App() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-between w-full p-4 bg-white border border-slate-200 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group ${link.color}`}
+                className={`flex items-center justify-between w-full p-3 sm:p-4 bg-white border border-slate-200 rounded-2xl shadow-xs hover:shadow-md transition-all duration-300 group ${link.color}`}
               >
-                <div className="flex items-center space-x-4">
-                  <div className="p-2 rounded-xl bg-slate-50 group-hover:bg-inherit transition-colors">
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="p-1.5 sm:p-2 rounded-xl bg-slate-50 group-hover:bg-inherit transition-colors">
                     {link.icon}
                   </div>
-                  <span className="font-medium text-slate-700 group-hover:text-inherit">{link.name}</span>
+                  <span className="font-medium text-sm sm:text-base text-slate-700 group-hover:text-inherit">{link.name}</span>
                 </div>
                 <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-40 transition-opacity" />
               </a>
@@ -138,15 +138,20 @@ export default function App() {
             href="https://wa.me/601170006477"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-between w-full p-4 bg-[#bbdb00] text-slate-900 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+            className="flex items-center justify-between w-full p-3 sm:p-4 bg-[#bbdb00] text-slate-900 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
           >
-            <div className="flex items-center space-x-4">
-              <div className="p-2 rounded-xl bg-slate-900/10 group-hover:bg-slate-900/20 transition-colors">
-                <SiWhatsapp size={24} />
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <div className="p-1.5 sm:p-2 rounded-xl bg-slate-900/10 group-hover:bg-slate-900/20 transition-colors">
+                <div className="sm:hidden">
+                  <SiWhatsapp size={20} />
+                </div>
+                <div className="hidden sm:block">
+                  <SiWhatsapp size={24} />
+                </div>
               </div>
-              <span className="font-bold text-lg">Contact me on WhatsApp</span>
+              <span className="font-bold text-base sm:text-lg">Contact me on WhatsApp</span>
             </div>
-            <ExternalLink className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
+            <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 opacity-50 group-hover:opacity-100 transition-opacity" />
           </a>
         </motion.div>
 
