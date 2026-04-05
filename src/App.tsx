@@ -160,10 +160,10 @@ export default function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="pt-12 pb-8 text-center"
+          className="pt-12 pb-2 text-center"
         >
           <p className="text-slate-400 text-sm font-medium">
-            © 2026 Fitri Mahadzir. All rights reserved.
+            Copyright © 2026 Fitri Mahadzir.<br></br>All rights reserved.
           </p>
         </motion.footer>
 
