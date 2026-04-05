@@ -12,7 +12,7 @@ const SOCIAL_LINKS = [
   {
     name: "Website",
     icon: <Globe className="w-5 h-5" />,
-    url: "https://fitrimz.com",
+    url: "https://fitrimahadzir.my",
     color: "hover:text-[#bbdb00] hover:border-[#bbdb00]"
   },
   {
