@@ -115,7 +115,7 @@ export default function App() {
             Links
           </button>
           <button 
-             onClick={() => setShowMaintenance(true)} {/* guna ini jika sudah hbis maintance */}
+             onClick={() => setShowMaintenance(true)}
             className={`relative flex-1 py-2 px-4 rounded-full text-sm font-bold transition-all duration-300 z-10 ${activeTab === 'shop' ? 'text-white' : 'text-white/60 hover:text-white'}`}
           >
             {activeTab === 'shop' && (
