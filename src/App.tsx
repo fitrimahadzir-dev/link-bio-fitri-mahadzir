@@ -65,7 +65,10 @@ const DUMMY_PRODUCTS = [
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'links' | 'shop'>('links');
-  const [showMaintenance, setShowMaintenance] = useState(false); {/* padam jika hbis maintance */}
+  const [showMaintenance, setShowMaintenance] = useState(false);
+
+  // Set this to false to enable the shop page
+  const isMaintenanceMode = true;
 
 
   return (
@@ -114,8 +117,8 @@ export default function App() {
             )}
             Links
           </button>
-          <button 
-             onClick={() => setShowMaintenance(true)}
+          <button
+            onClick={() => isMaintenanceMode ? setShowMaintenance(true) : setActiveTab('shop')} // Toggle between maintenance popup and shop tab
             className={`relative flex-1 py-2 px-4 rounded-full text-sm font-bold transition-all duration-300 z-10 ${activeTab === 'shop' ? 'text-white' : 'text-white/60 hover:text-white'}`}
           >
             {activeTab === 'shop' && (
