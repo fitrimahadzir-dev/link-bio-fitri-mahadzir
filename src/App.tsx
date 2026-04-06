@@ -65,6 +65,8 @@ const DUMMY_PRODUCTS = [
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'links' | 'shop'>('links');
+  const [showMaintenance, setShowMaintenance] = useState(false);
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start py-16 px-6 bg-[url('/images/wallpaper.svg')] bg-cover bg-right lg:bg-center bg-fixed">
@@ -113,7 +115,7 @@ export default function App() {
             Links
           </button>
           <button 
-            onClick={() => setActiveTab('shop')}
+             onClick={() => setShowMaintenance(true)}
             className={`relative flex-1 py-2 px-4 rounded-full text-sm font-bold transition-all duration-300 z-10 ${activeTab === 'shop' ? 'text-white' : 'text-white/60 hover:text-white'}`}
           >
             {activeTab === 'shop' && (
@@ -309,6 +311,41 @@ export default function App() {
           <span className="font-bold tracking-wide">Hire Me</span>
         </a>
       </motion.div> */}
+
+      {/* Maintenance Modal */}
+      <AnimatePresence>
+        {showMaintenance && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm"
+            onClick={() => setShowMaintenance(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-white rounded-3xl p-8 max-w-xs w-full text-center shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="w-16 h-16 bg-[#bbdb00]/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <ShoppingBag className="w-8 h-8 text-[#bbdb00]" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Under Maintenance</h3>
+              <p className="text-slate-500 mb-6">
+                The shop is currently in the build process and will be available soon. Stay tuned!
+              </p>
+              <button
+                onClick={() => setShowMaintenance(false)}
+                className="w-full py-3 bg-black text-white rounded-xl font-bold hover:bg-slate-800 transition-colors"
+              >
+                Got it
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
